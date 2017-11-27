@@ -16,7 +16,7 @@ ui <- fluidPage(
                      value = 49)
       ),
       mainPanel(
-         h2(textOutput("distPlot"))
+         h4(textOutput("distPlot"))
       )
    )
 )
@@ -31,10 +31,13 @@ server <- function(input, output) {
          n <- n - 1
          p <- p-1
        }
-      paste("Based on the selected criteria, the probability of winning the lottery is 1 in ",
-            format(1/x, big.mark = ","),
-            ".",
-            sep = "")
+     paste("Based on the selected criteria, the probability of winning the lottery is 1 in ",
+           format(1/x, big.mark = ","),
+           ". ",
+           "If you play once per week, you can expect to win every ",
+           format((1/x)/365.25, big.mark = ","),
+           " years.",
+           sep = "")
    })
 }
 
