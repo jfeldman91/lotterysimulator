@@ -6,13 +6,13 @@ ui <- fluidPage(
     sidebarPanel(
       sliderInput("n",
                   "Number of balls to choose",
-                  min = 1,
+                  min = 2,
                   max = 9,
                   value = 6),
       sliderInput("p",
                   "Number of balls to choose from",
-                  min = 10,
-                  max = 100,
+                  min = 20,
+                  max = 99,
                   value = 49)
     ),
     mainPanel(
@@ -74,7 +74,7 @@ server <- function(input, output) {
           
           "If you play once per week, you can expect to win approximately every ",
           format(round((1/x)/365.25, 0), big.mark = ","),
-          " years.",
+          " year(s).",
           sep = "")
     
   })
